@@ -7,7 +7,7 @@ def main():
     while (exit_case):
         print("Welcome to the Vignere Cipher algorithm program.\n")
         print("What would you like to do? (Please type the number 1-5)"
-              "\n\t1. encrypt\n\t2. decrypt\n\t3. char brute\n\tt4. exit")
+              "\n\t1. encrypt\n\t2. decrypt\n\t3. char brute\n\t4. exit")
         user_number = input("Enter number: ")
         while True:
             # User input validation
@@ -116,6 +116,9 @@ def itertools_generate_key(keySize):
         for key in itertools.product(lowercaseLetters, repeat=length):
             yield ''.join(key)
         counter += 1
+        if keySize == counter:
+            print("All iterations completed for designated key size.")
+            exit(0)
         user_input = input(f"Current key size {counter} completed. Continue? (y/n) ")
         if user_input == "n":
             exit(0)
